@@ -7,20 +7,30 @@
 </head>
 <body>
 	<div class="app">
-		<div id="inputNumbers"><span id="input">XXXX</span></div>
+		<button id="quitBtn" class="btnNumber" onclick="quit()">
+			Сдаться <span style="font-size: small;"><i>(esc)</i></span>
+		</button>
+		<span id="input">XXXX</span>
 		<div id="errors-and-results">Ошибки, результаты</div>
-		<div id="list">Что было раньше:</div>
-		<div id="number1"><button id="num1" class="btnNumber" onclick="inputNumbers(1)">1</button></div>
-		<div id="number2"><button id="num2" class="btnNumber" onclick="inputNumbers(2)">2</button></div>
-		<div id="number3"><button id="num3" class="btnNumber" onclick="inputNumbers(3)">3</button></div>
-		<div id="number4"><button id="num4" class="btnNumber" onclick="inputNumbers(4)">4</button></div>
-		<div id="number5"><button id="num5" class="btnNumber" onclick="inputNumbers(5)">5</button></div>
-		<div id="number6"><button id="num6" class="btnNumber" onclick="inputNumbers(6)">6</button></div>
-		<div id="number7"><button id="num7" class="btnNumber" onclick="inputNumbers(7)">7</button></div>
-		<div id="number8"><button id="num8" class="btnNumber" onclick="inputNumbers(8)">8</button></div>
-		<div id="number9"><button id="num9" class="btnNumber" onclick="inputNumbers(9)">9</button></div>
-		<div id="number0"><button id="num0" class="btnNumber" onclick="inputNumbers(0)">0</button></div>
-		<div id="delete"><button id="delBtn" class="btnNumber" onclick="inputNumbers(10)">del</button></div>
+		<span id="question">Результаты:
+			<img src="./img/bull.svg" alt="Бык">
+			<img src="./img/cow.svg" alt="Корова">
+			<a href="#">Правила игры</a>
+		</span>
+		<div id="list"></div>
+		<button id="num1" class="btnNumber" onclick="inputNumbers(1)">1</button>
+		<button id="num2" class="btnNumber" onclick="inputNumbers(2)">2</button>
+		<button id="num3" class="btnNumber" onclick="inputNumbers(3)">3</button>
+		<button id="num4" class="btnNumber" onclick="inputNumbers(4)">4</button>
+		<button id="num5" class="btnNumber" onclick="inputNumbers(5)">5</button>
+		<button id="num6" class="btnNumber" onclick="inputNumbers(6)">6</button>
+		<button id="num7" class="btnNumber" onclick="inputNumbers(7)">7</button>
+		<button id="num8" class="btnNumber" onclick="inputNumbers(8)">8</button>
+		<button id="num9" class="btnNumber" onclick="inputNumbers(9)">9</button>
+		<button id="num0" class="btnNumber" onclick="inputNumbers(0)">0</button>
+		<button id="delete" class="btnNumber" onclick="inputNumbers(10)">
+			&#8592; <span style="font-size: small;"><i>(Backspace)</i>
+		</button>
 	</div>
 </body>
 </html>

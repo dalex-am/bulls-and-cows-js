@@ -1,6 +1,6 @@
 function startGame() {
 	var randomNumber = []
-	document.getElementById("delBtn").setAttribute("disabled", true)
+	document.getElementById("delete").setAttribute("disabled", true)
 	document.getElementById("num0").setAttribute("disabled", true)
 
 	while (true) {
@@ -37,7 +37,7 @@ function disableAll() {
 	for (let index = 0; index < 10; index++) {
 		document.getElementById(`num${index}`).setAttribute("disabled", true)
 	}
-	document.getElementById(`delBtn`).setAttribute("disabled", true)
+	document.getElementById(`delete`).setAttribute("disabled", true)
 }
 
 function inputNumbers(digit) {
@@ -51,7 +51,7 @@ function inputNumbers(digit) {
 		COUNT_OF_INPUT--
 		INPUT_DEFAULT[COUNT_OF_INPUT] = 'X'
 		if (COUNT_OF_INPUT === 0) {
-			document.getElementById("delBtn").setAttribute("disabled", true)
+			document.getElementById("delete").setAttribute("disabled", true)
 			document.getElementById("num0").setAttribute("disabled", true)
 		}
 	} else {
@@ -61,7 +61,7 @@ function inputNumbers(digit) {
 				document.getElementById("num0").removeAttribute("disabled")
 			}
 		document.getElementById(`num${digit}`).setAttribute("disabled", true)
-		document.getElementById("delBtn").removeAttribute("disabled")
+		document.getElementById("delete").removeAttribute("disabled")
 	}
 	document.getElementById("input").innerHTML = correctInput(INPUT_DEFAULT)
 	checkNumber()
@@ -80,22 +80,34 @@ function checkNumber() {
 			}			
 		}
 		ATTEMPT++
-		document.getElementById("errors-and-results").innerHTML = (`bulls: ${bulls}, cows: ${cows}`)
+		document.getElementById("errors-and-results").innerHTML = (`Быков: ${bulls}, коров: ${cows}`)
 	}
 	for (let index = 1; index < 10; index++) {
 		document.getElementById(`num${index}`).removeAttribute("disabled")
 	}
-	document.getElementById("delBtn").setAttribute("disabled", true)
+	document.getElementById("delete").setAttribute("disabled", true)
 	document.getElementById("num0").setAttribute("disabled", true)
-	document.getElementById("list").
-		innerHTML+= (`<p>${ATTEMPT}. ${correctInput(INPUT_DEFAULT)} - bulls: ${bulls}, cows: ${cows}</p>`)
-	if (bulls === 4) {
-		document.getElementById("list").innerHTML+= (`<p>Победа!</p>`)
+	let list = document.getElementById("list")
+	list.innerHTML+= (`<p>${ATTEMPT}. ${correctInput(INPUT_DEFAULT)} - быков: ${bulls}, коров: ${cows}</p>`)
+	list.scrollTop = list.scrollHeight
+		if (bulls === 4) {
+		list.innerHTML+= (`<p>Победа!</p>`)
 		setText("Победа!")
+		list.scrollTop = list.scrollHeight
 		disableAll()
 	}
 	INPUT_DEFAULT = ["X", "X", "X", "X"]
 	COUNT_OF_INPUT = 0
+}
+
+function quit() {
+	disableAll()
+	setText(`${correctInput(NUMBER)}`)
+	document.getElementById("quitBtn").setAttribute("disabled", true)
+	let list = document.getElementById("list")
+	list.innerHTML+= (`<p>Ответ: ${correctInput(NUMBER)}</p>`)
+	list.scrollTop = list.scrollHeight
+
 }
 
 let ATTEMPT = 0
@@ -115,4 +127,5 @@ addEventListener("keydown", function(event) {
     if (event.keyCode === 57) {inputNumbers(9)}
     if (event.keyCode === 48) {inputNumbers(0)}
     if (event.keyCode === 8) {inputNumbers(10)}
+    if (event.keyCode === 27) {quit()}
   });
