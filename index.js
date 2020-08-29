@@ -68,7 +68,6 @@ function inputNumbers(digit) {
 function checkNumber() {
 	let cows = 0
 	let bulls = 0
-	let attempt = 0
 	if (COUNT_OF_INPUT < 4) {
 		return ''
 	}
@@ -78,7 +77,7 @@ function checkNumber() {
 				if ( NUMBER.indexOf(INPUT_DEFAULT[index]) >= 0 ) {cows++}
 			}			
 		}
-		attempt++
+		ATTEMPT++
 		document.getElementById("errors-and-results").innerHTML = (`bulls: ${bulls}, cows: ${cows}`)
 	}
 	for (let index = 1; index < 10; index++) {
@@ -87,7 +86,7 @@ function checkNumber() {
 	document.getElementById("delBtn").setAttribute("disabled", true)
 	document.getElementById("num0").setAttribute("disabled", true)
 	document.getElementById("list").
-		innerHTML+= (`<p>${attempt}. ${correctInput(INPUT_DEFAULT)} - bulls: ${bulls}, cows: ${cows}</p>`)
+		innerHTML+= (`<p>${ATTEMPT}. ${correctInput(INPUT_DEFAULT)} - bulls: ${bulls}, cows: ${cows}</p>`)
 	if (bulls === 4) {
 		document.getElementById("list").innerHTML+= (`<p>Победа!</p>`)
 		setText("Победа!")
@@ -97,7 +96,7 @@ function checkNumber() {
 	COUNT_OF_INPUT = 0
 }
 
-
+let ATTEMPT = 0
 let INPUT_DEFAULT = ["X", "X", "X", "X"]
 let COUNT_OF_INPUT = 0
 let NUMBER = startGame()
