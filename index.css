@@ -1,0 +1,98 @@
+html, body {
+	height: 100%;
+	font-family: Helvetica;
+}
+
+.app {
+	margin: 0 auto;
+	width: 90%;
+	height: 90%;
+	display: grid;
+	grid-gap: 2px;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0fr 0fr 2fr 2fr 2fr 2fr;
+	grid-template-areas: 
+		"list input input input"
+		"list results results results"
+		"list one two three"
+		"list four five six"
+		"list seven eight nine"
+		"list null delete delete"; 
+}
+
+.btnNumber {
+	background-color: gray;
+	border: none;
+	color: white;
+	width: 100%;
+	height: 100%;
+	border-radius: 0px;
+	font-size: large;
+}
+
+button:disabled{
+  background-color: #cccccc;
+  color: #666666;
+}
+
+#inputNumbers {
+	grid-area: input;
+	text-align: center;
+	font-size: 30px;
+}
+
+#errors-and-results {
+	grid-area: results;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+#list {
+	grid-area: list;
+	overflow-y: auto;
+	padding: 5px;
+}
+
+#number1 {
+	grid-area: one
+}
+
+#number2 {
+	grid-area: two
+}
+
+#number3 {
+	grid-area: three
+}
+
+#number4 {
+	grid-area: four
+}
+
+#number5 {
+	grid-area: five
+}
+
+#number6 {
+	grid-area: six
+}
+
+#number7 {
+	grid-area: seven
+}
+
+#number8 {
+	grid-area: eight
+}
+
+#number9 {
+	grid-area: nine
+}
+
+#number0 {
+	grid-area: null
+}
+
+#delete {
+	grid-area: delete;
+}
