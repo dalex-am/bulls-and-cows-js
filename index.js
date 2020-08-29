@@ -42,6 +42,9 @@ function disableAll() {
 
 function inputNumbers(digit) {
 	setText("Введите число")
+	if ( INPUT_DEFAULT.indexOf(digit.toString()) >= 0 ) {
+		return ''
+	}
 	if (digit === 10) {
 		let lastDigit = INPUT_DEFAULT[COUNT_OF_INPUT-1]
 		document.getElementById(`num${lastDigit}`).removeAttribute("disabled")
@@ -100,3 +103,16 @@ let INPUT_DEFAULT = ["X", "X", "X", "X"]
 let COUNT_OF_INPUT = 0
 let NUMBER = startGame()
 
+addEventListener("keydown", function(event) {
+    if (event.keyCode === 49) {inputNumbers(1)}
+    if (event.keyCode === 50) {inputNumbers(2)}
+    if (event.keyCode === 51) {inputNumbers(3)}
+    if (event.keyCode === 52) {inputNumbers(4)}
+    if (event.keyCode === 53) {inputNumbers(5)}
+    if (event.keyCode === 54) {inputNumbers(6)}
+    if (event.keyCode === 55) {inputNumbers(7)}
+    if (event.keyCode === 56) {inputNumbers(8)}
+    if (event.keyCode === 57) {inputNumbers(9)}
+    if (event.keyCode === 48) {inputNumbers(0)}
+    if (event.keyCode === 8) {inputNumbers(10)}
+  });
