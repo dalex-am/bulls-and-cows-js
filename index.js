@@ -15,8 +15,7 @@ function startGame() {
 		if (set.size === randomNumber.length) {
 			break
 		}
-	}	
-	console.log(randomNumber)
+	}
 	setText("Число загадано")
 	return randomNumber
 }
