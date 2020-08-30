@@ -41,6 +41,9 @@ function disableAll() {
 }
 
 function inputNumbers(digit) {
+	if (isWin) {
+		return ""
+	}
 	setText("Введите число")
 	if ( INPUT_DEFAULT.indexOf(digit.toString()) >= 0 ) {
 		return ''
@@ -93,6 +96,7 @@ function checkNumber() {
 		if (bulls === 4) {
 		list.innerHTML+= (`<p>Победа!</p>`)
 		setText("Победа!")
+		isWin = true
 		list.scrollTop = list.scrollHeight
 		disableAll()
 	}
@@ -101,15 +105,19 @@ function checkNumber() {
 }
 
 function quit() {
+	if (isWin) {
+		return ""
+	}
 	disableAll()
 	setText(`${correctInput(NUMBER)}`)
 	document.getElementById("quitBtn").setAttribute("disabled", true)
 	let list = document.getElementById("list")
 	list.innerHTML+= (`<p>Ответ: ${correctInput(NUMBER)}</p>`)
 	list.scrollTop = list.scrollHeight
-
+	isWin = true
 }
 
+let isWin = false
 let ATTEMPT = 0
 let INPUT_DEFAULT = ["X", "X", "X", "X"]
 let COUNT_OF_INPUT = 0
