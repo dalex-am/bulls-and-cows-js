@@ -20,6 +20,30 @@ html, body {
 		"list delete delete null"; 
 }
 
+.alert {
+	display: none;
+	background-color: black;
+	color: #444444;
+}
+
+.alert span {
+	position: absolute;
+	width:100%;
+	text-align: center;
+	top: 50%;
+}
+
+@media only screen and (orientation: portrait) { 
+	.alert {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	.app {
+		display: none;
+	}
+}
+
 .btnNumber {
 	background-color: gray;
 	border: none;
